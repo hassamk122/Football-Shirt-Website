@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ShoppingBag, Search, User, Menu ,X,Instagram} from "lucide-react";
 
 import logo from "../assets/logo.svg"
+import { nanoid } from "nanoid";
 
 
 
@@ -11,12 +12,12 @@ const styles ={
     icon:"text-gray-700    hover:text-black hover:scale-105 cursor-pointer transition-all duration-100  ease-in "
 }
 const pages = [
-    {name:"Home"},
-    {name:"Laliga"},
-    {name:"Premier League"},
-    {name:"Seria A"},
-    {name:"Bundesliga"},
-    {name:"International"}
+    {id:nanoid(), name:"Home"},
+    {id:nanoid(), name:"Laliga"},
+    {id:nanoid(), name:"Premier League"},
+    {id:nanoid(), name:"Seria A"},
+    {id:nanoid(), name:"Bundesliga"},
+    {id:nanoid(), name:"International"}
 ]
 
 const helpPages = [
@@ -61,7 +62,7 @@ function Header() {
         <div className="hidden lg:block">
              <ul className="flex space-x-5 p-2 flex-wrap ">
              {pages.map((page)=>(
-                 <li key={page.index} className={styles.navigation}>
+                 <li key={page.id} className={styles.navigation}>
                 <a className="">{page.name}</a>
                 </li>
              ))}
