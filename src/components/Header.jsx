@@ -33,7 +33,7 @@ const helpPages = [
 function Header() {
 
     const [isOpen, setIsOpen] = useState(false);
-    const [isScrolled ,setIsScrolled] = useState(false);
+    const [openSearch ,setOpenSearch] = useState(false);
 
 
     function toggleNavbar(){
@@ -41,6 +41,9 @@ function Header() {
       setIsOpen(!isOpen);
     }
 
+    function handleSearch(){
+      setOpenSearch(!openSearch);
+    }
     
 useEffect(() => {
   if (isOpen) {
@@ -56,6 +59,27 @@ useEffect(() => {
 }, [isOpen]);
 
 
+  if(openSearch){
+
+    return(
+      <>
+       <header className="w-full font-Dm-Sans text-sm text-gray-700 overflow-hidden">
+
+      <div className="border-b border-b-zinc-200 lg:flex lg:items-center lg:justify-center">
+    
+      <div className=" flex-row flex items-center justify-center  min-h-20  lg:w-[80%] gap-3  lg:gap-5">
+          <div className="w-20 h-20 lg:w-30 lg:h-30"><img src={logo} ></img></div>
+        <input placeholder="Enter Shirt Name..." className="border-2  border-gray-700 px-6  lg:px-20 py-2 focus:outline-[#2f7eff]"></input>
+        <button onClick={handleSearch}><X className="text-gray-700"  strokeWidth={1.5} size={20} absoluteStrokeWidth={true} /></button>
+        </div>
+      </div>
+       </header>
+      
+      </>
+    )
+  }
+
+  else{
   return (
     <header className="w-full font-Dm-Sans text-sm text-gray-700 overflow-hidden">
 
@@ -100,7 +124,7 @@ useEffect(() => {
          {/*-----------Icons Div----------- */}
         <div className="">
           <ul className="flex flex-row space-x-5">
-            <li className={styles.icon}><Search  strokeWidth={1.5} size={20} absoluteStrokeWidth={true}/> </li>
+            <button onClick={handleSearch}  className={styles.icon}><Search  strokeWidth={1.5} size={20} absoluteStrokeWidth={true}/> </button>
             <li className={styles.icon}><ShoppingBag strokeWidth={1.5} size={20} absoluteStrokeWidth={true}/></li>
             <li className={`hidden lg:block ${styles.icon}`}><User strokeWidth={1.5} size={20} absoluteStrokeWidth={true}/></li>
           </ul>
@@ -144,6 +168,8 @@ useEffect(() => {
         }
     </header>
   );
+  }
+
 }
 
 export default Header;
