@@ -17,13 +17,19 @@ const pages = [
     {id:nanoid(), name:"Premier League"},
     {id:nanoid(), name:"Seria A"},
     {id:nanoid(), name:"Bundesliga"},
+     {id:nanoid(), name:"Ligue 1"},
     {id:nanoid(), name:"International"}
 ]
 
 const helpPages = [
     {name:"Return and Exchange Policy"},
     {name:"Washing Guidelines"}
+
 ]
+
+
+
+
 function Header() {
 
     const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +40,21 @@ function Header() {
       console.log("clicked")
       setIsOpen(!isOpen);
     }
+
+    
+useEffect(() => {
+  if (isOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+
+  // Cleanup just in case
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [isOpen]);
+
 
   return (
     <header className="w-full font-Dm-Sans text-sm text-gray-700 overflow-hidden">
@@ -90,10 +111,14 @@ function Header() {
        {
           isOpen &&( 
           <div 
-           className={`absolute min-h-dvh text-xl font-Poppins z-[999] lg:hidden w-full md:w-auto bg-white md:shadow-none pt-5 
-      ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'} 
-      transition-all duration-100 ease-in-out`}
-              >      
+             className={`
+        fixed inset-0 z-[999] bg-white text-xl font-Poppins lg:hidden w-full pt-5 
+        transition-all duration-200 ease-in-out
+        ${isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}
+      `}
+              >    
+               <X className="absolute right-5" onClick={toggleNavbar}  strokeWidth={1.5} size={25} absoluteStrokeWidth={true}/>  
+               <div className="w-full h-8"></div>
              <ul className="flex flex-col space-x-5  flex-wrap ">
              {pages.map((page)=>(
                  <li key={page.index} className={styles.navigationMobile}>
