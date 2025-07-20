@@ -9,8 +9,29 @@ import LaLiga from "./pages/LaLiga"
 import AllProducts from "./pages/AllProducts"
 import PremierLeague from "./pages/PremierLeague"
 import SeriaA from "./pages/SeriaA.jsx"
+import International from "./pages/International.jsx"
+import Ligue1 from "./pages/Ligue1.jsx"
+import Bundesliga from "./pages/Bundesliga.jsx"
+import ReturnAndExchangePolicy from "./pages/returnAndExchangePolicy.jsx"
+import WashingGuidelines from "./pages/WashingGuidelines.jsx"
+import  ShoppingCart from "./pages/ShoppingCart.jsx"
 
 
+
+const routes = [
+  { path: "/", element: <Home /> },
+  { path: "/allProducts", element: <AllProducts /> },
+  { path: "/seriaA", element: <SeriaA /> },
+  { path: "/premierLeague", element: <PremierLeague /> },
+  { path: "/international", element: <International /> },
+  { path: "/bundesliga", element: <Bundesliga /> },
+  { path: "/ligue1", element: <Ligue1 /> },
+  { path: "/laliga", element: <LaLiga /> },
+  { path: "/returnAndExchangePolicy", element: <ReturnAndExchangePolicy /> },
+  { path: "/washingGuidelines", element: <WashingGuidelines /> },
+   { path: "/shoppingCart", element: <ShoppingCart/> },
+  { path: "/*", element: <NotFound /> }
+];
 
 function App() {
 
@@ -19,12 +40,9 @@ function App() {
      <Banner/>
      <Header/>
     <Routes>  
-      <Route path="/" element={<Home/>} />
-       <Route path="/allProducts" element={<AllProducts/>} />
-          <Route path="/seriaA" element={<SeriaA/>} />
-        <Route path="/premierLeague" element={<PremierLeague/>} />
-       <Route path="/laliga" element={<LaLiga/>} />
-      <Route path="/*" element={<NotFound/>} />
+      {routes.map(({path,element},index)=>(
+        <Route key={index}  path={path} element={element} />
+      ))}
     </Routes>
      <Footer/>
     </>

@@ -24,7 +24,7 @@ const pages = [
 ]
 
 const helpPages = [
-    {name:"Return and Exchange Policy",link:"/returnAndExchangePolice"},
+    {name:"Return and Exchange Policy",link:"/returnAndExchangePolicy"},
     {name:"Washing Guidelines",link:"/washingGuidelines"}
 
 ]
@@ -99,7 +99,7 @@ useEffect(() => {
          {/*-----------Icons Div----------- */}
         <div className="">
           <ul className="flex flex-row space-x-5">
-            <li className={styles.icon}><ShoppingBag strokeWidth={1.5} size={20} absoluteStrokeWidth={true}/></li>
+            <li className={styles.icon}><Link to="/shoppingCart"><ShoppingBag strokeWidth={1.5} size={20} absoluteStrokeWidth={true}/></Link></li>
             <li className={`hidden lg:block ${styles.icon}`}><User strokeWidth={1.5} size={20} absoluteStrokeWidth={true}/></li>
           </ul>
         </div>
