@@ -159,70 +159,64 @@ function Product({category,length,title}) {
          </div>
        {showModal && selectedProduct && (
         <div className="fixed inset-0  bg-[rgba(0,0,0,0.2)] bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg  w-[80%] h-[55%]  relative overflow-hidden">
+          <div className="bg-white rounded-lg w-[95%] h-[90%]   lg:w-[60%] lg:h-[55%]  relative overflow-hidden">
                <button
-              className="absolute top-4 right-4 text-black text-xl"
+              className="absolute top-4 left-4 text-black text-xl"
               onClick={closeModal}
             >
               <X className='bg-white rounded-4xl' strokeWidth={1.5} size={30} absoluteStrokeWidth={true}/>
             </button>
            
-            <div className='flex flex-row'>
+            <div className='flex flex-col  lg:flex-row'>
              
-            <div className='w-136 h-160  overflow-hidden '>
+            <div className='w-full  lg:w-136 lg:h-160  overflow-hidden '>
               <img src={selectedProduct.pic} alt={selectedProduct.name} className="w-full h-full object-cover " />
               </div>
 
-              <div className='flex  flex-col  w-[60%] h-[45%] pl-10 flex-wrap'>
-                <h2 className="text-md text-4xl  pt-4">{selectedProduct.name}</h2>
-                 <p className="text-gray-600 text-lg ">{selectedProduct.price}</p>
-                 <div>
-                   <h3 className='mt-3 text-gray-700'>Size</h3>
+              <div className='flex  flex-col w-full  lg:w-[60%] h-[45%] pl-4  lg:pl-10 flex-wrap'>
+                   <h2 className="text-md text-lg lg:text-4xl  pt-4">{selectedProduct.name}</h2>
+                 <p className="text-gray-600 text-sm  lg:text-lg ">{selectedProduct.price}</p>
+               
+                
+                   <h3 className='mt-2 lg:mt-3 text-gray-700'>Size</h3>
                    <div className='flex flex-wrap gap-2 mt-2'>
-                   <button className='text-gray-500 border rounded-4xl w-12  h-6  bg-black'>S</button>
-                   <button className='text-gray-500 border rounded-4xl w-12  h-6 '>M</button>
-                   <button className='text-gray-500 border rounded-4xl w-12  h-6 '>L</button>
-                   <button className='text-gray-500 border rounded-4xl w-12  h-6 '>XL</button>
-                   <button className='text-gray-500 border rounded-4xl w-12  h-6 '>XXL</button>
+                   <button className='text-gray-500 border rounded-4xl text-sm lg:text-base  w-12  lg:h-6  bg-black'>S</button>
+                   <button className='text-gray-500 border rounded-4xl text-sm lg:text-base  w-12  lg:h-6 '>M</button>
+                   <button className='text-gray-500 border rounded-4xl text-sm lg:text-base  w-12  lg:h-6 '>L</button>
+                   <button className='text-gray-500 border rounded-4xl text-sm lg:text-base  w-12  lg:h-6 '>XL</button>
+                   <button className='text-gray-500 border rounded-4xl text-sm lg:text-base  w-12  lg:h-6 '>XXL</button>
                    </div>
-                      <div>
-                   <h3 className='mt-3 text-gray-700'>Player Options</h3>
-                   <div className='flex flex-wrap gap-2 mt-2'>
-                    {selectedProduct.players.map((player,index)=>(
-                      <button key={index} className='text-gray-500 border rounded-4xl px-3 py-1  '>{player}</button>
-                    ))}
-                   </div>
-                  </div>
+
 
                     <div >
                       <h3 className='mt-3 text-gray-700'>Quantity</h3>
                       <div className='flex gap-4 mt-2'>
-                        <button className='h-8 w-8 border text-gray-500 flex  items-center justify-center'>-</button>
-                        <h1 className='h-8 w-8 border text-gray-500 flex  items-center justify-center'>1</h1>
-                        <button className='h-8 w-8 border text-gray-500 flex  items-center justify-center'>+</button>
+                         <button className=' lg:h-8  w-6 h-6  lg:w-8 border text-gray-500 flex  items-center justify-center'>-</button>
+                             <h1 className=' lg:h-8  w-6 h-6  lg:w-8 border text-gray-500 flex  items-center justify-center'>1</h1>
+                          <button className=' lg:h-8   w-6 h-6  lg:w-8 border text-gray-500 flex  items-center justify-center'>+</button>
                       </div>
                       </div>
-                  </div>
-               <div>
-                <p className=" text-gray-600 mt-5  w-132 text-justify space-y-2">
+                      <div>
+                <p className=" text-gray-600 mt-5  w-132 text-justify space-y-2 hidden lg:block">
           <li>Embroided Logo</li>
           <li>Stretchable Ribbed Sleeve and Neck</li>
           <li>Premium Mesh Sports Fabric</li>
            <li>Velvet Patches</li>
         </p>
                 </div>
+                  </div>
+               
 
-            <div className='absolute bottom-10 right-10  mt-2'>
-           
+            <div className='absolute bottom-2 right-2  lg:bottom-10 lg:right-10  mt-2'>   
             <AddToCartButton/>
                 </div>
                 
             </div>
              </div>
           </div>
-        </div>
       )}
         </div>
+    
   )
 }
 
